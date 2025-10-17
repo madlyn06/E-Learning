@@ -1,0 +1,16 @@
+{
+    "name": "module/manage",
+    "description": "manage",
+    "autoload": {
+        "psr-4": {
+            "Modules\\Manage\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Manage\\ManageServiceProvider"
+            ]
+        }
+    }
+}

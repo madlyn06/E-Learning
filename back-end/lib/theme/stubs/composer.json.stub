@@ -1,0 +1,25 @@
+{
+    "name": "__COMPOSER_NAME__",
+    "description": "Theme __THEME_NAME__",
+    "license": "MIT",
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Themes\\__THEME_CLASS_NAME__\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Themes\\__THEME_CLASS_NAME__\\ThemeServiceProvider"
+            ]
+        },
+        "theme": {
+            "key": "__THEME_FOLDER__",
+            "name": "__THEME_NAME__",
+            "description": "Theme __THEME_NAME__",
+            "screenshot": "/themes/__THEME_FOLDER__/screenshot.png"
+        }
+    }
+}

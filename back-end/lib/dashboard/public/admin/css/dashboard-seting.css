@@ -1,0 +1,16 @@
+.dashboard-nestable {
+    min-height: calc(100vh - 381px);
+}
+
+.dashboard-nestable .dd-empty {
+    background-color: #fcfcfc;
+    border-color: #e5e5e5;
+}
+
+.dashboard-nestable .dd-handle {
+    border-radius: 0;
+}
+
+.dashboard-nestable .dd {
+    max-width: 100%;
+}

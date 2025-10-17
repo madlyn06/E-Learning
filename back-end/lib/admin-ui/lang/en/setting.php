@@ -1,0 +1,46 @@
+<?php
+return [
+    'index' => [
+        'page_title'    => 'Configuration',
+        'page_subtitle' => 'System Configuration',
+        'breadcrumb'    => 'Setting',
+    ],
+
+    'general' => [
+        'panel_title'          => 'General',
+        'sub_title'            => 'Setting general information',
+        'site_title'           => 'Website Title',
+        'site_title_short'     => 'Short Title',
+        'site_description'     => 'Website description',
+        'site_contact_phone'   => 'Contact Phone',
+        'site_contact_phone_call' => 'Phone call',
+        'site_contact_phone_zalo' => 'Zalo Phone',
+        'site_contact_email'   => 'Contact Email',
+        'site_contact_address' => 'Contact Address',
+        'site_tax_no'          => 'Tax No',
+        'site_date_founding'   => 'Founding date',
+        'admin_email'          => 'Admin Email',
+        'favicon'              => 'Favicon',
+        'logo'                 => 'Logo',
+        'logo_dark'            => 'Logo dark',
+        'logo_light'           => 'Logo light',
+        'logo_login'           => 'Logo login',
+        'logo_admin'           => 'Logo admin',
+        'loading_image'        => 'Loading image',
+        'redirect_404_to_home' => 'Redirect 404 to home',
+        'script_header' => 'Script header',
+        'script_body' => 'Script body',
+        'script_footer' => 'Script footer',
+        'helper_header' => '<i>These scripts will be printed in the `head` section.</i>',
+        'helper_body' => '<i>These scripts will be printed in the `body` section.</i>',
+        'helper_footer' => '<i>These scripts will be printed in the `footer` section.</i>',
+        'map_iframe' => 'Map iframe',
+        'helper_map_iframe' => '<i>Copy all the iframe from <a href="https://www.google.com/maps"> google map</a>. Warning: do not set width and height for iframe</i>',
+        'working_time' => 'Working time',
+        'robots_configuration' => 'Robots configuration',
+    ],
+
+    'notification' => [
+        'updated' => 'Successfully updated!',
+    ],
+];

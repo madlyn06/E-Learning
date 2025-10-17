@@ -1,0 +1,16 @@
+{
+    "name": "module/static-block",
+    "description": "static-block",
+    "autoload": {
+        "psr-4": {
+            "Modules\\StaticBlock\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\StaticBlock\\StaticBlockServiceProvider"
+            ]
+        }
+    }
+}

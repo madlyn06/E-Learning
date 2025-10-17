@@ -1,0 +1,27 @@
+{
+    "name": "newnetcms/acl",
+    "description": "ACL",
+    "require": {
+        "newnetcms/media": "*",
+        "laravel/sanctum": "*",
+        "laravel/ui": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Newnet\\Acl\\": "/src"
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Newnet\\Acl\\AclServiceProvider"
+            ],
+            "aliases": {
+                "Permission": "Newnet\\Acl\\Facades\\Permission"
+            }
+        }
+    }
+}

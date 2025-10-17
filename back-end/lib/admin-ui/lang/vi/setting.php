@@ -1,0 +1,48 @@
+<?php
+return [
+    'index' => [
+        'page_title'    => 'Cấu hình',
+        'page_subtitle' => 'Cấu hình hệ thống',
+        'breadcrumb'    => 'Cài đặt',
+    ],
+
+    'general' => [
+        'panel_title'          => 'Thông tin chung',
+        'sub_title'            => 'Cài đặt thông tin chung',
+        'site_title'           => 'Tiêu đề website',
+        'site_title_short'     => 'Tên website ngắn',
+        'site_description'     => 'Mô tả trang web',
+        'site_contact_phone'   => 'Điện thoại',
+        'site_contact_phone_call' => 'Số điện thoại nút gọi',
+        'site_contact_phone_zalo' => 'Điện thoại cho zalo',
+        'site_contact_email'   => 'Email',
+        'site_contact_address' => 'Địa chỉ',
+        'site_tax_no'          => 'Mã số thuế',
+        'site_date_founding'   => 'Ngày thành lập',
+        'admin_email'          => 'Admin Email',
+        'favicon'              => 'Favicon',
+        'logo'                 => 'Logo',
+        'logo_dark'            => 'Logo màu tối',
+        'logo_light'           => 'Logo màu sáng',
+        'logo_login'           => 'Logo đăng nhập',
+        'logo_admin'           => 'Logo admin',
+        'loading_image'        => 'Hình ảnh loading',
+        'redirect_404_to_home' => 'Redirect 404 to home',
+        'script_header' => 'Script header',
+        'script_body' => 'Script body',
+        'script_footer' => 'Script footer',
+        'helper_header' => '<i>Các đoạn mã script này sẽ được in trong phần `head` của trang.</i>',
+        'helper_body' => '<i>Các đoạn mã script này sẽ được in trong phần `body` của trang.</i>',
+        'helper_footer' => '<i>Các đoạn mã script này sẽ được in trong phần `footer` của trang.</i>',
+        'map_iframe' => 'iFrame bản đồ',
+        'helper_map_iframe' => '<i>Copy tất cả iframe từ <a href="https://www.google.com/maps"> google map.</a> Chú ý, không set width và height cho iframe</i>',
+        'working_time' => 'Thời gian làm việc',
+        'robots_configuration' => 'Cấu hình nội dung file robots.txt',
+        'captcha_key' => 'Captcha key',
+        'captcha_secret' => 'Captcha secret',
+    ],
+
+    'notification' => [
+        'updated' => 'Cập nhật thành công!',
+    ],
+];

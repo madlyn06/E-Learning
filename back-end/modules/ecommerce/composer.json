@@ -1,0 +1,16 @@
+{
+    "name": "module/ecommerce",
+    "description": "Ecommerce",
+    "autoload": {
+        "psr-4": {
+            "Modules\\Ecommerce\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Ecommerce\\EcommerceServiceProvider"
+            ]
+        }
+    }
+}

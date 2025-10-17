@@ -1,0 +1,19 @@
+{
+    "name": "newnetcms/cms",
+    "description": "Module CMS",
+    "require": {
+        "newnetcms/base": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Newnet\\Cms\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Newnet\\Cms\\CmsServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "newnetcms/customer",
+    "description": "Module Customer",
+    "autoload": {
+        "psr-4": {
+            "Newnet\\Customer\\": "/src"
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+              "Newnet\\Customer\\CustomerServiceProvider"
+            ]
+        }
+    }
+}

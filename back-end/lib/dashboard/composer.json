@@ -1,0 +1,25 @@
+{
+    "name": "newnetcms/dashboard",
+    "description": "Dashboard",
+    "require": {
+        "arrilot/laravel-widgets": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Newnet\\Dashboard\\": "/src"
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Newnet\\Dashboard\\DashboardServiceProvider"
+            ],
+            "aliases": {
+                "Dashboard": "Newnet\\Dashboard\\Facades\\Dashboard"
+            }
+        }
+    }
+}

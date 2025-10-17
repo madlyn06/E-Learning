@@ -1,0 +1,19 @@
+{
+    "name": "newnetcms/theme",
+    "description": "Theme Manager",
+    "autoload": {
+        "psr-4": {
+            "Newnet\\Theme\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Newnet\\Theme\\ThemeServiceProvider"
+            ],
+            "aliases": {
+                "Theme": "Newnet\\Theme\\Facades\\Theme"
+            }
+        }
+    }
+}

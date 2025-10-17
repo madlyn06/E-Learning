@@ -1,0 +1,16 @@
+{
+    "name": "newnetcms/slider",
+    "description": "Slider",
+    "autoload": {
+        "psr-4": {
+            "Newnet\\Slider\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Newnet\\Slider\\SliderServiceProvider"
+            ]
+        }
+    }
+}

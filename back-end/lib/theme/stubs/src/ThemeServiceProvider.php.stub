@@ -1,0 +1,13 @@
+<?php
+
+namespace Themes\__THEME_CLASS_NAME__;
+
+use Newnet\Theme\Support\CoreThemeServiceProvider;
+
+class ThemeServiceProvider extends CoreThemeServiceProvider
+{
+    public function getThemeName(): string
+    {
+        return '__THEME_FOLDER__';
+    }
+}

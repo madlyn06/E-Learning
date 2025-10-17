@@ -1,0 +1,17 @@
+{
+    "name": "newnetcms/base",
+    "description": "Newnet CMS Package For Frontend",
+    "require": {
+        "newnetcms/admin": "self.version",
+        "newnetcms/menu": "self.version",
+        "newnetcms/seo": "self.version",
+        "newnetcms/tag": "self.version",
+        "newnetcms/theme": "self.version",
+        "newnetcms/multilingual": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "Newnet\\": "src"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "newnetcms/seo",
+    "description": "SEO",
+    "autoload": {
+        "psr-4": {
+            "Newnet\\Seo\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Newnet\\Seo\\SeoServiceProvider"
+            ]
+        }
+    }
+}

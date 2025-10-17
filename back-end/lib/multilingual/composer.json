@@ -1,0 +1,21 @@
+{
+    "name": "newnetcms/multilingual",
+    "description": "NewnetCMS Multilingual",
+    "license": "MIT",
+    "require": {
+        "mcamara/laravel-localization": "^2.3",
+        "spatie/laravel-translatable": "^6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Newnet\\Multilingual\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Newnet\\Multilingual\\MultilingualServiceProvider"
+            ]
+        }
+    }
+}

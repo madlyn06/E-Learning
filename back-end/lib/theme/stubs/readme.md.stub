@@ -1,0 +1,12 @@
+# Theme __THEME_NAME__
+
+Theme key: `__THEME_FOLDER__`
+
+## Install
+`npm install`
+
+## Dev
+`npm run watch`
+
+## Build
+`npm run prod`

@@ -1,0 +1,37 @@
+{
+    "name": "newnetcms/core",
+    "description": "Core",
+    "require": {
+        "lavary/laravel-menu": "^1.8",
+        "doctrine/dbal": "^2.0|^3.0",
+        "newnetcms/setting": "*",
+        "newnetcms/dashboard": "*",
+        "newnetcms/acl": "*",
+        "newnetcms/asset": "*"
+    },
+    "require_old": {
+        "kjmtrue/laravel-theme": "*",
+        "kalnoy/nestedset": "^5.0|^6.0",
+        "mcamara/laravel-localization": "^1.0",
+        "doctrine/dbal": "^2.10",
+        "spatie/laravel-translatable": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Newnet\\Core\\": "src/"
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Newnet\\Core\\CoreServiceProvider"
+            ],
+            "aliases": {
+                "Newnet": "Newnet\\Core\\Facades\\Newnet"
+            }
+        }
+    }
+}

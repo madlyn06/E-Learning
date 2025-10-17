@@ -1,0 +1,16 @@
+{
+    "name": "newnetcms/contact",
+    "description": "Module Contact",
+    "autoload": {
+        "psr-4": {
+            "Newnet\\Contact\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+              "Newnet\\Contact\\ContactServiceProvider"
+            ]
+        }
+    }
+}

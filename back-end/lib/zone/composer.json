@@ -1,0 +1,19 @@
+{
+    "name": "newnetcms/zone",
+    "description": "Module Zone",
+    "require": {
+        "maatwebsite/excel": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Newnet\\Zone\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+              "Newnet\\Zone\\ZoneServiceProvider"
+            ]
+        }
+    }
+}

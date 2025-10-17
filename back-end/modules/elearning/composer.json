@@ -1,0 +1,16 @@
+{
+    "name": "module/elearning",
+    "description": "Elearning",
+    "autoload": {
+        "psr-4": {
+            "Modules\\Elearning\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Elearning\\ElearningServiceProvider"
+            ]
+        }
+    }
+}

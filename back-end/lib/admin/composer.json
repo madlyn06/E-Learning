@@ -1,0 +1,14 @@
+{
+    "name": "newnetcms/admin",
+    "description": "Newnet CMS Package For Admin",
+    "require": {
+        "newnetcms/core": "self.version",
+        "newnetcms/acl": "self.version",
+        "newnetcms/asset": "self.version",
+        "newnetcms/dashboard": "self.version",
+        "newnetcms/media": "self.version",
+        "newnetcms/module": "self.version",
+        "newnetcms/setting": "self.version",
+        "newnetcms/admin-ui": "self.version"
+    }
+}
