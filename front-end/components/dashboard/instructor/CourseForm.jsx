@@ -19,7 +19,8 @@ function CourseForm({ handleCourse, course }) {
   const { categories } = useContext(DashBoardContext)
   const { toggleProcessing } = useContext(FeedbackContext)
   const { profile } = useAuth()
-  const categoryOptions = categories.map((category) => ({
+  console.log
+  const categoryOptions = categories?.map((category) => ({
     label: category.label,
     value: category.key
   }))
