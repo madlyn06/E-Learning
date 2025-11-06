@@ -264,6 +264,7 @@
     padding: 13.5px 30px;
     @include d-flex();
     align-items: center;
+    justify-content: flex-start;
     gap: 10px;
     color: var(--White);
     font-size: 16px;

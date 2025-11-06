@@ -3588,6 +3588,11 @@ instructors-item
   height: 100%;
   width: 100%;
   background-color: var(--White);
+  pointer-events: all;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .preload-container .middle {
@@ -3601,7 +3606,8 @@ instructors-item
   background-position: center center;
   background-size: contain;
   content: url(../images/logo/favicon.png);
-  animation: preload 1.2s linear infinite alternate;
+  animation: preload 1s linear infinite alternate;
+  pointer-events: none;
 }
 
 .wrap-instructor {

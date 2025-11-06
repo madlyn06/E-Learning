@@ -23,7 +23,7 @@ class CustomerRequest extends FormRequest
      */
     public function rules()
     {
-        $auth = request()->id ? request()->id : auth()->user()->id;
+        $auth = request()->id ? request()->id : auth('sanctum')->user()->id;
         return [
             'name' => 'required',
             'phone'     => 'required|numeric|unique:customer__customers,phone,'.$auth,

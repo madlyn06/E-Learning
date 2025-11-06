@@ -12,6 +12,7 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
 {
     use NestedRepositoryTrait;
 
+
     public function create(array $data)
     {
         $model = parent::create($data);

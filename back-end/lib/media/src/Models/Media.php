@@ -165,7 +165,7 @@ class Media extends Model
      */
     public function getDirectory()
     {
-        return 'dichvuhaiquan/'.$this->created_at->format('Y/m').'/'.$this->getKey();
+        return $this->created_at->format('Y/m').'/'.$this->getKey();
     }
 
     /**

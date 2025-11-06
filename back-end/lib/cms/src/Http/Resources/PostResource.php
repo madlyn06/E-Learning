@@ -29,7 +29,7 @@ class PostResource extends JsonResource
       'author' => [
         'name' => $this->author ? $this->author->name : null,
         'slug' =>  $this->author ? $this->author->slug : null,
-        'avatar' => $this->author && $this->author->avatar ? $this->author->avatar->url : null
+        // 'avatar' => $this->author && $this->author &&  $this->author->avatar ? $this->author->avatar->url : null
       ],
       'category' =>[
         'name' => count($this->categories) > 0 ? $category->name : null,

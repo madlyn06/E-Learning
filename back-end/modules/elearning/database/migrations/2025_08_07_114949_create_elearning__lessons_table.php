@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->enum('type', ['video', 'quiz', 'file'])->default('video');
             $table->string('slug')->index()->nullable();
-            $table->unsignedBigInteger('chapter_id');
+            $table->unsignedBigInteger('section_id');
             $table->unsignedBigInteger('user_id');
             $table->text('summary')->nullable();
             $table->longText('content')->nullable();
@@ -37,7 +37,7 @@ return new class extends Migration
             $table->integer('position');
             $table->index('position');
 
-            $table->foreign('chapter_id')->references('id')->on('elearning__chapters')->onDelete('cascade');
+            $table->foreign('section_id')->references('id')->on('elearning__sections')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('elearning__users')->onDelete('cascade');
             $table->timestamps();
         });

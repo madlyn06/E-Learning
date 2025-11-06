@@ -1,148 +1,72 @@
-import React from "react";
+import React, { useId, useRef, useLayoutEffect } from 'react'
 
-export default function Accordions() {
+export default function Accordions({ childrenHeader, childrenContent }) {
+  const id = useId()
+  const contentRef = useRef(null)
+  const [isOpen, setIsOpen] = React.useState(true)
+  const [height, setHeight] = React.useState('auto')
+
+  useLayoutEffect(() => {
+    if (contentRef.current) {
+      if (isOpen) {
+        setHeight(contentRef.current.scrollHeight + 'px')
+      } else {
+        setHeight('0px')
+      }
+    }
+  }, [isOpen, childrenContent])
+
+  const toggleAccordion = (e) => {
+    // Check if the click target is an interactive element that shouldn't trigger collapse
+    const target = e.target
+    const isInteractive =
+      target.closest('button') ||
+      target.closest('input') ||
+      target.closest('select') ||
+      target.closest('textarea') ||
+      target.closest('[data-no-collapse]') ||
+      target.closest('svg') || // Icon elements
+      target.closest('path') || // SVG path elements
+      target.tagName === 'svg' ||
+      target.tagName === 'path'
+
+    if (isInteractive) {
+      e.preventDefault()
+      e.stopPropagation()
+      return
+    }
+
+    setIsOpen(!isOpen)
+  }
+
   return (
     <>
-      <div className="tf-accordion-item">
-        <h3 className="tf-accordion-header">
+      <div className='tf-accordion-item'>
+        <h3 className='tf-accordion-header'>
           <span
-            className="tf-accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseOne"
-            aria-expanded="false"
-            aria-controls="collapseOne"
+            className={`tf-accordion-button ${isOpen ? '' : 'collapsed'}`}
+            type='button'
+            onClick={toggleAccordion}
+            aria-expanded={isOpen}
+            aria-controls={`collapse${id}`}
           >
-            <span className="rectangle-314" />
-            High-Quality Video Lessons
+            <span className='rectangle-314' />
+            {childrenHeader}
           </span>
         </h3>
         <div
-          id="collapseOne"
-          className="tf-accordion-collapse collapse show"
-          data-bs-parent="#accordionExample"
+          id={`collapse${id}`}
+          className='tf-accordion-collapse'
+          style={{
+            height: height,
+            overflow: 'hidden',
+            transition: 'height 0.3s ease-in-out'
+          }}
+          ref={contentRef}
         >
-          <div className="tf-accordion-content">
-            <p>
-              Lorem ipsum dolor sit amet consectur adipiscing elit sed eius mod
-              ex tempor incididunt labore dolore magna aliquaenim ad minim
-              eniam.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="tf-accordion-item">
-        <h3 className="tf-accordion-header">
-          <span
-            className="tf-accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseTwo"
-            aria-expanded="true"
-            aria-controls="collapseTwo"
-          >
-            <span className="rectangle-314" />
-            Personalized Feedback and Support
-          </span>
-        </h3>
-        <div
-          id="collapseTwo"
-          className="tf-accordion-collapse collapse"
-          data-bs-parent="#accordionExample"
-        >
-          <div className="tf-accordion-content">
-            <p>
-              Lorem ipsum dolor sit amet consectur adipiscing elit sed eius mod
-              ex tempor incididunt labore dolore magna aliquaenim ad minim
-              eniam.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="tf-accordion-item">
-        <h3 className="tf-accordion-header">
-          <span
-            className="tf-accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="true"
-            aria-controls="collapseThree"
-          >
-            <span className="rectangle-314" />
-            Access to Course Materials and Resources
-          </span>
-        </h3>
-        <div
-          id="collapseThree"
-          className="tf-accordion-collapse collapse"
-          data-bs-parent="#accordionExample"
-        >
-          <div className="tf-accordion-content">
-            <p>
-              Lorem ipsum dolor sit amet consectur adipiscing elit sed eius mod
-              ex tempor incididunt labore dolore magna aliquaenim ad minim
-              eniam.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="tf-accordion-item">
-        <h3 className="tf-accordion-header">
-          <span
-            className="tf-accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseFour"
-            aria-expanded="true"
-            aria-controls="collapseFour"
-          >
-            <span className="rectangle-314" />
-            Can I distribute this product?
-          </span>
-        </h3>
-        <div
-          id="collapseFour"
-          className="tf-accordion-collapse collapse"
-          data-bs-parent="#accordionExample"
-        >
-          <div className="tf-accordion-content">
-            <p>
-              Lorem ipsum dolor sit amet consectur adipiscing elit sed eius mod
-              ex tempor incididunt labore dolore magna aliquaenim ad minim
-              eniam.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="tf-accordion-item">
-        <h3 className="tf-accordion-header">
-          <span
-            className="tf-accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseFive"
-            aria-expanded="true"
-            aria-controls="collapseFive"
-          >
-            <span className="rectangle-314" />
-            What is your refund policy?
-          </span>
-        </h3>
-        <div
-          id="collapseFive"
-          className="tf-accordion-collapse collapse"
-          data-bs-parent="#accordionExample"
-        >
-          <div className="tf-accordion-content">
-            <p>
-              Lorem ipsum dolor sit amet consectur adipiscing elit sed eius mod
-              ex tempor incididunt labore dolore magna aliquaenim ad minim
-              eniam.
-            </p>
-          </div>
+          <div className='tf-accordion-content'>{childrenContent}</div>
         </div>
       </div>
     </>
-  );
+  )
 }

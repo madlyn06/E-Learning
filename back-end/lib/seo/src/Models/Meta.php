@@ -59,6 +59,8 @@ class Meta extends Model
     protected $table = 'seo__metas';
 
     protected $fillable = [
+        'metable_type',
+        'metable_id',
         'title',
         'description',
         'keywords',

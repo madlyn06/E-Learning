@@ -2,43 +2,64 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
+import { Button } from '../ui/Button'
+import { useLoading } from '@/hooks/useLoading'
+import apiFetch from '@/utils/request'
+import { toast } from 'react-toastify'
+import { useAuth } from '@/context/AuthContext'
+
 const dashboardItems = [
   {
-    href: '/instructor-dashboard',
+    href: '/dashboard',
     iconClass: 'flaticon-activity',
     label: 'Dashboard',
     active: true
   },
   {
-    href: '/instructor-my-courses',
+    href: '/dashboard/instructor-courses',
+    iconClass: 'flaticon-document',
+    label: 'Khoá học đã tạo'
+  },
+  {
+    href: '/dashboard/my-courses',
     iconClass: 'flaticon-play-1',
-    label: 'My Courses'
+    label: 'Khoá học đã đăng ký'
   },
   {
-    href: '/instructor-reviews',
+    href: '/dashboard/reviews',
     iconClass: 'flaticon-message-1',
-    label: 'Reviews'
+    label: 'Đánh giá'
   },
   {
-    href: '/instructor-wishlist',
+    href: '/dashboard/wishlist',
     iconClass: 'flaticon-heart',
-    label: 'Wishlist'
+    label: 'Yêu thích'
   },
   {
-    href: '/instructor-quizzes',
+    href: '/dashboard/quizzes',
     iconClass: 'flaticon-question',
-    label: 'Quizzes'
+    label: 'Bài kiểm tra'
   },
-  { href: '/instructor-order', iconClass: 'flaticon-bag', label: 'Order' },
   {
-    href: '/instructor-setting',
-    iconClass: 'flaticon-setting-1',
-    label: 'Settings'
+    href: '/dashboard/orders',
+    iconClass: 'flaticon-bag',
+    label: 'Đơn hàng'
   },
-  { href: '/', iconClass: 'flaticon-export', label: 'Logout' }
+  {
+    href: '/dashboard/setting',
+    iconClass: 'flaticon-setting-1',
+    label: 'Cài đặt'
+  },
+  { href: '/', iconClass: 'flaticon-export', label: 'Đăng xuất' }
 ]
 export default function DashboardNav() {
   const { pathname } = useRouter()
+
+  const { loading, withLoading } = useLoading()
+  const { logout } = useAuth()
+
+  const router = useRouter()
+
   useEffect(() => {
     const toggleElement = document.querySelector('.dashboard_navigationbar .dropbtn')
     const dashboardNav = document.querySelector('.dashboard_navigationbar .instructors-dashboard')
@@ -64,15 +85,44 @@ export default function DashboardNav() {
     }
   }, [])
 
+  const handleLogout = async () => {
+    await withLoading(async (data) => {
+      try {
+        await apiFetch.post('v1/elearning/users/logout')
+        router.push('/auth/login')
+        toast.success('Logout successfully')
+        logout()
+      } catch (error) {
+        toast.error('Logout failed')
+        // router.push('/auth/login')
+      }
+    })
+  }
+
   return (
     <>
       <>
-        {dashboardItems.map((item, index) => (
-          <Link key={index} className={`dashboard-item ${pathname == item.href ? 'active' : ''}`} href={item.href}>
-            <i className={item.iconClass} />
-            {item.label}
-          </Link>
-        ))}
+        {dashboardItems.map((item, index) => {
+          if (item.href === '/')
+            return (
+              <Button
+                key={index}
+                onClick={handleLogout}
+                disabled={loading}
+                className={`dashboard-item`}
+                href={item.href}
+              >
+                <i className={item.iconClass} />
+                {item.label}
+              </Button>
+            )
+          return (
+            <Link key={index} className={`dashboard-item ${pathname == item.href ? 'active' : ''}`} href={item.href}>
+              <i className={item.iconClass} />
+              {item.label}
+            </Link>
+          )
+        })}
       </>
     </>
   )

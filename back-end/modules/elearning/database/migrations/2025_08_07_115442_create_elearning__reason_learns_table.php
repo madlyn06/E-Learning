@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('elearning__reason_learns', function (Blueprint $table) {
             $table->id();
-      $table->string('name');
-      $table->text('description')->nullable();
-      $table->text('content')->nullable();
-      $table->boolean('is_enable')->default(true);
-      $table->unsignedBigInteger('user_id');
-      $table->foreign('user_id')->references('id')->on('elearning__users')->onDelete('cascade');
-      $table->timestamps();
+        $table->string('name');
+        $table->text('description')->nullable();
+        $table->text('content')->nullable();
+        $table->boolean('is_enable')->default(true);
+        $table->unsignedBigInteger('user_id');
+        $table->foreign('user_id')->references('id')->on('elearning__users')->onDelete('cascade');
+        $table->timestamps();
         });
     }
 

@@ -153,7 +153,7 @@ trait HasMediaTrait
             });
         }
         $filteredArray = array_filter($ids, function($value) {
-            return !is_null($value);
+            return !empty($value);
         });
 
         if (count($filteredArray) > 0) {

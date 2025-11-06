@@ -1,7 +1,7 @@
 <div class="form-group row component-translatable">
     <label for="translatable" class="col-12 col-form-label font-weight-600">{{ trans('admin::translate.language') }}</label>
     <div class="col-12">
-        <input type="hidden" name="edit_locale" value="{{ request('edit_locale') }}">
+        <input type="hidden" name="edit_locale" value="{{ request('edit_locale') ?: config('app.locale') }}">
 
         <div class="language-list">
             <ul class="list-unstyled">

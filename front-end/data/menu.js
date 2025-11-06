@@ -1,277 +1,265 @@
 export const menuItems = [
   {
-    title: "Home",
+    title: 'Home',
     isActive: true,
-    subItems: [
-      { title: "Home Page 01", href: "/" },
-      { title: "Home Page 02", href: "/home-02" },
-      { title: "Home Page 03", href: "/home-03" },
-      { title: "Home Page 04", href: "/home-04" },
-      { title: "Home Page 05", href: "/home-05" },
-      { title: "Home Page 06", href: "/home-06" },
-      { title: "Home Page 07", href: "/home-07" },
-      { title: "Home Page 08", href: "/home-08" },
-      { title: "Home Page 09", href: "/home-09" },
-      { title: "Home Page 10", href: "/home-10" },
-    ],
+    subItems: [{ title: 'Home Page 01', href: '/' }]
   },
   {
-    title: "Courses",
+    title: 'Courses',
     hasMega: true,
     subItems: [
       {
-        title: "Course List",
+        title: 'Course List',
         subItems: [
-          { title: "Course Grid Basic", href: "/course-grid-basic" },
-          { title: "Course Grid Modern", href: "/course-grid-modern" },
+          { title: 'Course Grid Basic', href: '/course-grid-basic' },
+          { title: 'Course Grid Modern', href: '/course-grid-modern' },
           {
-            title: "Course Grid Left Sidebar",
-            href: "/course-grid-left-sidebar",
+            title: 'Course Grid Left Sidebar',
+            href: '/course-grid-left-sidebar'
           },
           {
-            title: "Course Grid Right Sidebar",
-            href: "/course-grid-right-sidebar",
+            title: 'Course Grid Right Sidebar',
+            href: '/course-grid-right-sidebar'
           },
-          { title: "Course List Sidebar", href: "/course-list-sidebar" },
-          { title: "Course All List Style", href: "/all-list-style" },
-        ],
+          { title: 'Course List Sidebar', href: '/course-list-sidebar' },
+          { title: 'Course All List Style', href: '/all-list-style' }
+        ]
       },
       {
-        title: "Course Single",
+        title: 'Course Single',
         subItems: [
-          { title: "Course Single 01", href: "/course-single-v1/1" },
-          { title: "Course Single 02", href: "/course-single-v2" },
-          { title: "Course Single 03", href: "/course-single-v3" },
-          { title: "Course Single 04", href: "/course-single-v4" },
-          { title: "Course Single 05", href: "/course-single-v5" },
-        ],
+          { title: 'Course Single 01', href: '/course-single-v1/1' },
+          { title: 'Course Single 02', href: '/course-single-v2' },
+          { title: 'Course Single 03', href: '/course-single-v3' },
+          { title: 'Course Single 04', href: '/course-single-v4' },
+          { title: 'Course Single 05', href: '/course-single-v5' }
+        ]
       },
       {
-        title: "Course Category",
+        title: 'Course Category',
         subItems: [
-          { title: "Categories", href: "/categories" },
-          { title: "Online Business", href: "/categories" },
-          { title: "Photography", href: "/categories" },
-          { title: "Music & Audio", href: "/categories" },
-          { title: "Programming & Tech", href: "/categories" },
-          { title: "Graphics & Design", href: "/categories" },
-        ],
-      },
-    ],
+          { title: 'Categories', href: '/categories' },
+          { title: 'Online Business', href: '/categories' },
+          { title: 'Photography', href: '/categories' },
+          { title: 'Music & Audio', href: '/categories' },
+          { title: 'Programming & Tech', href: '/categories' },
+          { title: 'Graphics & Design', href: '/categories' }
+        ]
+      }
+    ]
   },
   {
-    title: "Pages",
+    title: 'Pages',
     isActive: true,
     subItems: [
-      { title: "Instructor List", href: "/instructor-list" },
-      { title: "Instructor Single", href: "/instructor-single/1" },
-      { title: "Become a Teacher", href: "/become-teacher" },
-      { title: "Event List", href: "/event-list" },
-      { title: "Event Single", href: "/event-single/1" },
-      { title: "About", href: "/about" },
-      { title: "Contact", href: "/contact" },
-      { title: "Help Center", href: "/help-center" },
-      { title: "Pricing", href: "/pricing" },
-      { title: "Faq", href: "/faq" },
-      { title: "Terms", href: "/terms" },
-      { title: "404", href: "/page-not-found" },
-      { title: "Login", href: "/login" },
-      { title: "Register", href: "/register" },
-      { title: "Instructor Dashboard", href: "/instructor-dashboard" },
-      { title: "Student Dashboard", href: "/student-dashboard" },
-      { title: "UI Elements", href: "/ui-elements" },
-    ],
+      { title: 'Instructor List', href: '/instructor-list' },
+      { title: 'Instructor Single', href: '/instructor-single/1' },
+      { title: 'Become a Teacher', href: '/become-teacher' },
+      { title: 'Event List', href: '/event-list' },
+      { title: 'Event Single', href: '/event-single/1' },
+      { title: 'About', href: '/about' },
+      { title: 'Contact', href: '/contact' },
+      { title: 'Help Center', href: '/help-center' },
+      { title: 'Pricing', href: '/pricing' },
+      { title: 'Faq', href: '/faq' },
+      { title: 'Terms', href: '/terms' },
+      { title: '404', href: '/page-not-found' },
+      { title: 'Login', href: '/auth/login' },
+      { title: 'Register', href: '/auth/register' },
+      { title: 'Dashboard', href: '/dashboard' },
+      { title: 'UI Elements', href: '/ui-elements' }
+    ]
   },
   {
-    title: "Blog",
+    title: 'Blog',
     subItems: [
-      { title: "Blog Grid", href: "/blog-grid" },
-      { title: "Blog List 01", href: "/blog-list-v1" },
-      { title: "Blog List 02", href: "/blog-list-v2" },
-      { title: "Blog Single", href: "/blog-single/1" },
-    ],
+      { title: 'Blog Grid', href: '/blog-grid' },
+      { title: 'Blog List 01', href: '/blog-list-v1' },
+      { title: 'Blog List 02', href: '/blog-list-v2' },
+      { title: 'Blog Single', href: '/blog-single/1' }
+    ]
   },
   {
-    title: "Shop",
+    title: 'Shop',
     subItems: [
-      { title: "Shop List", href: "/shop-list" },
-      { title: "Shop Single", href: "/shop-single/1" },
-      { title: "Shop Cart", href: "/shop-cart" },
-      { title: "Shop Checkout", href: "/shop-checkout" },
-      { title: "Shop Order", href: "/shop-order" },
-    ],
-  },
-];
+      { title: 'Shop List', href: '/shop-list' },
+      { title: 'Shop Single', href: '/shop-single/1' },
+      { title: 'Shop Cart', href: '/shop-cart' },
+      { title: 'Shop Checkout', href: '/shop-checkout' },
+      { title: 'Shop Order', href: '/shop-order' }
+    ]
+  }
+]
 
 export const categories = [
   {
     id: 1,
-    title: "Graphics & Design",
+    title: 'Graphics & Design',
 
     subItems: [
-      { id: 1, title: "Human Resources", href: "/categories" },
-      { id: 2, title: "Operations", href: "/categories" },
-      { id: 3, title: "Supply Chain Management", href: "/categories" },
-      { id: 4, title: "Customer Service", href: "/categories" },
-      { id: 5, title: "Manufacturing", href: "/categories" },
-      { id: 6, title: "Health And Safety", href: "/categories" },
-      { id: 7, title: "Quality Management", href: "/categories" },
-      { id: 8, title: "E-commerce", href: "/categories" },
-      { id: 9, title: "Management", href: "/categories" },
-      { id: 10, title: "Sales", href: "/categories" },
-    ],
+      { id: 1, title: 'Human Resources', href: '/categories' },
+      { id: 2, title: 'Operations', href: '/categories' },
+      { id: 3, title: 'Supply Chain Management', href: '/categories' },
+      { id: 4, title: 'Customer Service', href: '/categories' },
+      { id: 5, title: 'Manufacturing', href: '/categories' },
+      { id: 6, title: 'Health And Safety', href: '/categories' },
+      { id: 7, title: 'Quality Management', href: '/categories' },
+      { id: 8, title: 'E-commerce', href: '/categories' },
+      { id: 9, title: 'Management', href: '/categories' },
+      { id: 10, title: 'Sales', href: '/categories' }
+    ]
   },
   {
     id: 2,
-    title: "Digital Marketing",
+    title: 'Digital Marketing',
 
     subItems: [
-      { id: 1, title: "Human Resources", href: "/categories" },
-      { id: 2, title: "Operations", href: "/categories" },
-      { id: 3, title: "Supply Chain Management", href: "/categories" },
-      { id: 4, title: "Customer Service", href: "/categories" },
-      { id: 5, title: "Manufacturing", href: "/categories" },
-      { id: 6, title: "Health And Safety", href: "/categories" },
-      { id: 7, title: "Quality Management", href: "/categories" },
-      { id: 8, title: "E-commerce", href: "/categories" },
-      { id: 9, title: "Management", href: "/categories" },
-      { id: 10, title: "Sales", href: "/categories" },
-    ],
+      { id: 1, title: 'Human Resources', href: '/categories' },
+      { id: 2, title: 'Operations', href: '/categories' },
+      { id: 3, title: 'Supply Chain Management', href: '/categories' },
+      { id: 4, title: 'Customer Service', href: '/categories' },
+      { id: 5, title: 'Manufacturing', href: '/categories' },
+      { id: 6, title: 'Health And Safety', href: '/categories' },
+      { id: 7, title: 'Quality Management', href: '/categories' },
+      { id: 8, title: 'E-commerce', href: '/categories' },
+      { id: 9, title: 'Management', href: '/categories' },
+      { id: 10, title: 'Sales', href: '/categories' }
+    ]
   },
   {
     id: 3,
-    title: "Business",
+    title: 'Business',
 
     subItems: [
-      { id: 1, title: "Human Resources", href: "/categories" },
-      { id: 2, title: "Operations", href: "/categories" },
-      { id: 3, title: "Supply Chain Management", href: "/categories" },
-      { id: 4, title: "Customer Service", href: "/categories" },
-      { id: 5, title: "Manufacturing", href: "/categories" },
-      { id: 6, title: "Health And Safety", href: "/categories" },
-      { id: 7, title: "Quality Management", href: "/categories" },
-      { id: 8, title: "E-commerce", href: "/categories" },
-      { id: 9, title: "Management", href: "/categories" },
-      { id: 10, title: "Sales", href: "/categories" },
-    ],
+      { id: 1, title: 'Human Resources', href: '/categories' },
+      { id: 2, title: 'Operations', href: '/categories' },
+      { id: 3, title: 'Supply Chain Management', href: '/categories' },
+      { id: 4, title: 'Customer Service', href: '/categories' },
+      { id: 5, title: 'Manufacturing', href: '/categories' },
+      { id: 6, title: 'Health And Safety', href: '/categories' },
+      { id: 7, title: 'Quality Management', href: '/categories' },
+      { id: 8, title: 'E-commerce', href: '/categories' },
+      { id: 9, title: 'Management', href: '/categories' },
+      { id: 10, title: 'Sales', href: '/categories' }
+    ]
   },
   {
     id: 4,
-    title: "Music & Audio",
+    title: 'Music & Audio',
 
     subItems: [
-      { id: 1, title: "Human Resources", href: "/categories" },
-      { id: 2, title: "Operations", href: "/categories" },
-      { id: 3, title: "Supply Chain Management", href: "/categories" },
-      { id: 4, title: "Customer Service", href: "/categories" },
-      { id: 5, title: "Manufacturing", href: "/categories" },
-      { id: 6, title: "Health And Safety", href: "/categories" },
-      { id: 7, title: "Quality Management", href: "/categories" },
-      { id: 8, title: "E-commerce", href: "/categories" },
-      { id: 9, title: "Management", href: "/categories" },
-      { id: 10, title: "Sales", href: "/categories" },
-    ],
+      { id: 1, title: 'Human Resources', href: '/categories' },
+      { id: 2, title: 'Operations', href: '/categories' },
+      { id: 3, title: 'Supply Chain Management', href: '/categories' },
+      { id: 4, title: 'Customer Service', href: '/categories' },
+      { id: 5, title: 'Manufacturing', href: '/categories' },
+      { id: 6, title: 'Health And Safety', href: '/categories' },
+      { id: 7, title: 'Quality Management', href: '/categories' },
+      { id: 8, title: 'E-commerce', href: '/categories' },
+      { id: 9, title: 'Management', href: '/categories' },
+      { id: 10, title: 'Sales', href: '/categories' }
+    ]
   },
   {
     id: 5,
-    title: "Data",
+    title: 'Data',
 
     subItems: [
-      { id: 1, title: "Human Resources", href: "/categories" },
-      { id: 2, title: "Operations", href: "/categories" },
-      { id: 3, title: "Supply Chain Management", href: "/categories" },
-      { id: 4, title: "Customer Service", href: "/categories" },
-      { id: 5, title: "Manufacturing", href: "/categories" },
-      { id: 6, title: "Health And Safety", href: "/categories" },
-      { id: 7, title: "Quality Management", href: "/categories" },
-      { id: 8, title: "E-commerce", href: "/categories" },
-      { id: 9, title: "Management", href: "/categories" },
-      { id: 10, title: "Sales", href: "/categories" },
-    ],
+      { id: 1, title: 'Human Resources', href: '/categories' },
+      { id: 2, title: 'Operations', href: '/categories' },
+      { id: 3, title: 'Supply Chain Management', href: '/categories' },
+      { id: 4, title: 'Customer Service', href: '/categories' },
+      { id: 5, title: 'Manufacturing', href: '/categories' },
+      { id: 6, title: 'Health And Safety', href: '/categories' },
+      { id: 7, title: 'Quality Management', href: '/categories' },
+      { id: 8, title: 'E-commerce', href: '/categories' },
+      { id: 9, title: 'Management', href: '/categories' },
+      { id: 10, title: 'Sales', href: '/categories' }
+    ]
   },
   {
     id: 6,
-    title: "Video & Animation",
+    title: 'Video & Animation',
 
     subItems: [
-      { id: 1, title: "Human Resources", href: "/categories" },
-      { id: 2, title: "Operations", href: "/categories" },
-      { id: 3, title: "Supply Chain Management", href: "/categories" },
-      { id: 4, title: "Customer Service", href: "/categories" },
-      { id: 5, title: "Manufacturing", href: "/categories" },
-      { id: 6, title: "Health And Safety", href: "/categories" },
-      { id: 7, title: "Quality Management", href: "/categories" },
-      { id: 8, title: "E-commerce", href: "/categories" },
-      { id: 9, title: "Management", href: "/categories" },
-      { id: 10, title: "Sales", href: "/categories" },
-    ],
+      { id: 1, title: 'Human Resources', href: '/categories' },
+      { id: 2, title: 'Operations', href: '/categories' },
+      { id: 3, title: 'Supply Chain Management', href: '/categories' },
+      { id: 4, title: 'Customer Service', href: '/categories' },
+      { id: 5, title: 'Manufacturing', href: '/categories' },
+      { id: 6, title: 'Health And Safety', href: '/categories' },
+      { id: 7, title: 'Quality Management', href: '/categories' },
+      { id: 8, title: 'E-commerce', href: '/categories' },
+      { id: 9, title: 'Management', href: '/categories' },
+      { id: 10, title: 'Sales', href: '/categories' }
+    ]
   },
   {
     id: 7,
-    title: "Photography",
+    title: 'Photography',
 
     subItems: [
-      { id: 1, title: "Human Resources", href: "/categories" },
-      { id: 2, title: "Operations", href: "/categories" },
-      { id: 3, title: "Supply Chain Management", href: "/categories" },
-      { id: 4, title: "Customer Service", href: "/categories" },
-      { id: 5, title: "Manufacturing", href: "/categories" },
-      { id: 6, title: "Health And Safety", href: "/categories" },
-      { id: 7, title: "Quality Management", href: "/categories" },
-      { id: 8, title: "E-commerce", href: "/categories" },
-      { id: 9, title: "Management", href: "/categories" },
-      { id: 10, title: "Sales", href: "/categories" },
-    ],
+      { id: 1, title: 'Human Resources', href: '/categories' },
+      { id: 2, title: 'Operations', href: '/categories' },
+      { id: 3, title: 'Supply Chain Management', href: '/categories' },
+      { id: 4, title: 'Customer Service', href: '/categories' },
+      { id: 5, title: 'Manufacturing', href: '/categories' },
+      { id: 6, title: 'Health And Safety', href: '/categories' },
+      { id: 7, title: 'Quality Management', href: '/categories' },
+      { id: 8, title: 'E-commerce', href: '/categories' },
+      { id: 9, title: 'Management', href: '/categories' },
+      { id: 10, title: 'Sales', href: '/categories' }
+    ]
   },
   {
     id: 8,
-    title: "Lifestyle",
+    title: 'Lifestyle',
 
     subItems: [
-      { id: 1, title: "Human Resources", href: "/categories" },
-      { id: 2, title: "Operations", href: "/categories" },
-      { id: 3, title: "Supply Chain Management", href: "/categories" },
-      { id: 4, title: "Customer Service", href: "/categories" },
-      { id: 5, title: "Manufacturing", href: "/categories" },
-      { id: 6, title: "Health And Safety", href: "/categories" },
-      { id: 7, title: "Quality Management", href: "/categories" },
-      { id: 8, title: "E-commerce", href: "/categories" },
-      { id: 9, title: "Management", href: "/categories" },
-      { id: 10, title: "Sales", href: "/categories" },
-    ],
+      { id: 1, title: 'Human Resources', href: '/categories' },
+      { id: 2, title: 'Operations', href: '/categories' },
+      { id: 3, title: 'Supply Chain Management', href: '/categories' },
+      { id: 4, title: 'Customer Service', href: '/categories' },
+      { id: 5, title: 'Manufacturing', href: '/categories' },
+      { id: 6, title: 'Health And Safety', href: '/categories' },
+      { id: 7, title: 'Quality Management', href: '/categories' },
+      { id: 8, title: 'E-commerce', href: '/categories' },
+      { id: 9, title: 'Management', href: '/categories' },
+      { id: 10, title: 'Sales', href: '/categories' }
+    ]
   },
   {
     id: 9,
-    title: "Writing & Translation",
+    title: 'Writing & Translation',
 
     subItems: [
-      { id: 1, title: "Human Resources", href: "/categories" },
-      { id: 2, title: "Operations", href: "/categories" },
-      { id: 3, title: "Supply Chain Management", href: "/categories" },
-      { id: 4, title: "Customer Service", href: "/categories" },
-      { id: 5, title: "Manufacturing", href: "/categories" },
-      { id: 6, title: "Health And Safety", href: "/categories" },
-      { id: 7, title: "Quality Management", href: "/categories" },
-      { id: 8, title: "E-commerce", href: "/categories" },
-      { id: 9, title: "Management", href: "/categories" },
-      { id: 10, title: "Sales", href: "/categories" },
-    ],
+      { id: 1, title: 'Human Resources', href: '/categories' },
+      { id: 2, title: 'Operations', href: '/categories' },
+      { id: 3, title: 'Supply Chain Management', href: '/categories' },
+      { id: 4, title: 'Customer Service', href: '/categories' },
+      { id: 5, title: 'Manufacturing', href: '/categories' },
+      { id: 6, title: 'Health And Safety', href: '/categories' },
+      { id: 7, title: 'Quality Management', href: '/categories' },
+      { id: 8, title: 'E-commerce', href: '/categories' },
+      { id: 9, title: 'Management', href: '/categories' },
+      { id: 10, title: 'Sales', href: '/categories' }
+    ]
   },
   {
     id: 10,
-    title: "Programming & Tech",
+    title: 'Programming & Tech',
 
     subItems: [
-      { id: 1, title: "Human Resources", href: "/categories" },
-      { id: 2, title: "Operations", href: "/categories" },
-      { id: 3, title: "Supply Chain Management", href: "/categories" },
-      { id: 4, title: "Customer Service", href: "/categories" },
-      { id: 5, title: "Manufacturing", href: "/categories" },
-      { id: 6, title: "Health And Safety", href: "/categories" },
-      { id: 7, title: "Quality Management", href: "/categories" },
-      { id: 8, title: "E-commerce", href: "/categories" },
-      { id: 9, title: "Management", href: "/categories" },
-      { id: 10, title: "Sales", href: "/categories" },
-    ],
-  },
-];
+      { id: 1, title: 'Human Resources', href: '/categories' },
+      { id: 2, title: 'Operations', href: '/categories' },
+      { id: 3, title: 'Supply Chain Management', href: '/categories' },
+      { id: 4, title: 'Customer Service', href: '/categories' },
+      { id: 5, title: 'Manufacturing', href: '/categories' },
+      { id: 6, title: 'Health And Safety', href: '/categories' },
+      { id: 7, title: 'Quality Management', href: '/categories' },
+      { id: 8, title: 'E-commerce', href: '/categories' },
+      { id: 9, title: 'Management', href: '/categories' },
+      { id: 10, title: 'Sales', href: '/categories' }
+    ]
+  }
+]

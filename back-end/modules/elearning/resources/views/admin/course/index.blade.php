@@ -27,7 +27,7 @@
                 <div class="text-right">
                     <div class="actions">
 	                    @admincan('elearning.admin.course.create')
-	                        <a href="{{ route('elearning.admin.course.create') }}" class="action-item">
+	                        <a href="{{ route('elearning.admin.courses.create') }}" class="action-item">
 	                            <i class="fa fa-plus"></i>
 	                            {{ __('core::button.add') }}
 	                        </a>
@@ -42,7 +42,7 @@
                 <button type="submit" class="btn btn-primary mr-1">
                     {{ __('core::button.search') }}
                 </button>
-                <a href="{{ route('elearning.admin.course.index') }}" class="btn btn-danger">
+                <a href="{{ route('elearning.admin.courses.index') }}" class="btn btn-danger">
                     {{ __('core::button.cancel') }}
                 </a>
             </form>
@@ -53,6 +53,8 @@
                     <tr>
                         <th>{{ __('#') }}</th>
                         <th>{{ __('elearning::course.name') }}</th>
+                        <th>{{ __('elearning::course.sale_price') }}</th>
+                        <th>{{ __('elearning::course.price') }}</th>
                         <th>{{ __('elearning::course.is_active') }}</th>
                         <th>@translatableHeader</th>
                         <th>{{ __('elearning::course.created_at') }}</th>
@@ -64,26 +66,40 @@
                         <tr>
                             <td>{{ $loop->index + $items->firstItem() }}</td>
                             <td>
-                                <a href="{{ route('elearning.admin.course.edit', $item->id) }}">
+                                <a href="{{ route('elearning.admin.courses.edit', $item->id) }}">
                                     {{ $item->name }}
                                 </a>
                             </td>
                             <td>
-                                @if($item->is_active)
+                                @if($item->sale_price)
+                                    {{ number_format($item->sale_price) }}₫
+                                @else
+                                    {{ __('elearning::message.not_available') }}
+                                @endif
+                            </td>
+                            <td>
+                                @if($item->price)
+                                    {{ number_format($item->price) }}₫
+                                @else
+                                    {{ __('elearning::message.not_available') }}
+                                @endif
+                            </td>
+                            <td>
+                                @if($item->is_enable)
                                     <i class="fas fa-check text-success"></i>
                                 @endif
                             </td>
-                            <td>@translatableStatus(['editUrl' => route('elearning.admin.course.edit', $item->id)])</td>
+                            <td>@translatableStatus(['editUrl' => route('elearning.admin.courses.index', $item->id)])</td>
                             <td>{{ $item->created_at }}</td>
                             <td class="text-right">
-                                @admincan('elearning.admin.course.edit')
-                                    <a href="{{ route('elearning.admin.course.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1">
+                                @admincan('elearning.admin.courses.edit')
+                                    <a href="{{ route('elearning.admin.courses.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1">
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
                                 @endadmincan
 
                                 @admincan('elearning.admin.course.destroy')
-                                    <table-button-delete url-delete="{{ route('elearning.admin.course.destroy', $item->id) }}"></table-button-delete>
+                                    <table-button-delete url-delete="{{ route('elearning.admin.courses.destroy', $item->id) }}"></table-button-delete>
                                 @endadmincan
                             </td>
                         </tr>

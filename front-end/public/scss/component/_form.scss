@@ -138,7 +138,7 @@ fieldset {
     }
     .tf-field-label {
         position: absolute;
-        top: 50%;
+        top: 40%;
         transform: translateY(-50%);
         left: 0px;
         transition: all 0.1s ease;
@@ -250,3 +250,11 @@ fieldset {
         margin-bottom: 23px;
     }
 }
+
+.form-error-message {
+    color: #e74c3c; /* đỏ cảnh báo */
+    font-size: 13px;
+    font-weight: 500;
+    text-align: start !important;
+
+  }

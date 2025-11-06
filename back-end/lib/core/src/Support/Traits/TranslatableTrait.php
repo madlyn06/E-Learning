@@ -15,7 +15,7 @@ trait TranslatableTrait
 
     protected function getLocale(): string
     {
-        return $this->translationLocale ?: request('edit_locale') ?? config('app.locale');
+        return $this->translationLocale ?: (!empty(request('edit_locale')) ? request('edit_locale') : config('app.locale'));
     }
 
     public function useFallbackLocale(): bool

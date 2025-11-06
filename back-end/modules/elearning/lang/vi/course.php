@@ -2,8 +2,10 @@
 return [
     'model_name' => 'Course',
 
-    'name'        => 'Tiêu đề',
+    'name'        => 'Tên',
     'description' => 'Mô tả',
+    'sale_price'  => 'Giá bán',
+    'price'       => 'Giá gốc',
     'content'     => 'Nội dung',
     'is_active'   => 'Kích hoạt',
     'created_at'  => 'Ngày tạo',

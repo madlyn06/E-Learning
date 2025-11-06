@@ -38,7 +38,7 @@ class CourseController extends Controller
         $item = $this->courseRepository->create($request->all());
 
         return redirect()
-            ->route('elearning.admin.course.edit', [
+            ->route('elearning.admin.courses.index', [
                 'course' => $item,
                 'edit_locale' => $request->input('edit_locale'),
             ])
@@ -73,7 +73,7 @@ class CourseController extends Controller
         }
 
         return redirect()
-            ->route('elearning.admin.course.index')
+            ->route('elearning.admin.courses.index')
             ->with('success', __('elearning::course.notification.deleted'));
     }
 }

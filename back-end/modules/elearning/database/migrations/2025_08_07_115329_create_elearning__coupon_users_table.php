@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('course_id')->index();
 
             $table->foreign('user_id')->references('id')->on('elearning__users')->onDelete('cascade');
-            // $table->foreign('coupon_id')->references('id')->on('marketing__coupons')->onDelete('cascade');
+            $table->foreign('coupon_id')->references('id')->on('elearning__coupons')->onDelete('cascade');
             $table->foreign('course_id')->references('id')->on('elearning__courses')->onDelete('cascade');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('e_learning__coupon_users');
+        Schema::dropIfExists('elearning__coupon_users');
     }
 };

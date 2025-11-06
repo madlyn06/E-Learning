@@ -1,95 +1,108 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react'
 
 export default function Pagination({
-  itemLength = 200,
-  itemPerPage = 10,
+  currentPage = 1,
+  total = 200,
+  perPage = 10,
   setPage = (num) => {},
+  maxVisiblePages = 5
 }) {
-  const [activePage, setActivePage] = useState(1);
-  const totalPages = Math.ceil(itemLength / itemPerPage); // Adjust as needed
+  const [activePage, setActivePage] = useState(currentPage)
+  const totalPages = Math.ceil(total / perPage)
+
+  useEffect(() => {
+    setActivePage(currentPage)
+  }, [currentPage])
 
   const handlePageClick = (page) => {
-    if (page != 0 && page <= totalPages) {
-      setActivePage(page);
-      setPage(page);
+    if (page >= 1 && page <= totalPages && page !== activePage) {
+      setActivePage(page)
+      setPage(page)
     }
-    // Add navigation logic here, e.g., using a router or window.location
-  };
+  }
 
+  const getVisiblePages = () => {
+    if (totalPages <= maxVisiblePages) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1)
+    }
+
+    const sidePages = Math.floor((maxVisiblePages - 3) / 2)
+    let startPage = Math.max(activePage - sidePages, 1)
+    let endPage = Math.min(activePage + sidePages, totalPages)
+
+    if (activePage <= sidePages + 1) {
+      endPage = Math.min(maxVisiblePages - 2, totalPages - 1)
+    } else if (activePage >= totalPages - sidePages) {
+      startPage = Math.max(totalPages - maxVisiblePages + 3, 2)
+    }
+
+    const pages = []
+
+    pages.push(1)
+
+    if (startPage > 2) {
+      pages.push('...')
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      if (i !== 1 && i !== totalPages) {
+        pages.push(i)
+      }
+    }
+
+    if (endPage < totalPages - 1) {
+      pages.push('...')
+    }
+
+    if (totalPages > 1) {
+      pages.push(totalPages)
+    }
+
+    return pages
+  }
+
+  const visiblePages = getVisiblePages()
+
+  if (totalPages <= 1) {
+    return null
+  }
   return (
     <>
       {totalPages > 1 ? (
         <React.Fragment>
-          {" "}
           <li onClick={() => handlePageClick(activePage - 1)}>
             <a>
-              <i className="icon-arrow-left" />
+              <i className='icon-arrow-left' />
             </a>
           </li>
-          {[...Array(totalPages)].slice(0, 5).map((_, index) => {
-            const page = index + 1;
+          {visiblePages.map((page, index) => {
+            if (page === '...') {
+              return (
+                <li className='' key={`ellipsis-${index}`}>
+                  <a className=''>...</a>
+                </li>
+              )
+            }
+
             return (
-              <li
-                className={` ${activePage === page ? "active" : ""}`}
-                key={page}
-              >
-                <a className="" onClick={() => handlePageClick(page)}>
+              <li className={` ${activePage === page ? 'active' : ''}`} key={page}>
+                <a className='' onClick={() => handlePageClick(page)}>
                   {page}
                 </a>
               </li>
-            );
+            )
           })}
-          {activePage == 6 && (
-            <li className={` ${activePage === 6 ? "active" : ""}`}>
-              <a className="" onClick={() => handlePageClick(6)}>
-                {6}
-              </a>
-            </li>
-          )}
-          {activePage >= 7 && activePage <= 18 && (
-            <li className="">
-              <a className="">...</a>
-            </li>
-          )}
-          {activePage >= 7 && activePage <= 18 && (
-            <li className={` active`}>
-              <a className="">{activePage}</a>
-            </li>
-          )}
-          {totalPages > 8 ? (
-            <li className="">
-              <a className="">...</a>
-            </li>
-          ) : (
-            ""
-          )}
-          {activePage == 19 && (
-            <li className={` ${activePage === 19 ? "active" : ""}`}>
-              <a className="" onClick={() => handlePageClick(19)}>
-                {19}
-              </a>
-            </li>
-          )}
-          {totalPages > 8 ? (
-            <li className={` ${activePage === totalPages ? "active" : ""}`}>
-              <a className="" onClick={() => handlePageClick(totalPages)}>
-                {totalPages}
-              </a>
-            </li>
-          ) : (
-            ""
-          )}
           <li onClick={() => handlePageClick(activePage + 1)}>
             <a>
-              <i className="icon-arrow-right" />
+              <i className='icon-arrow-right' />
             </a>
-          </li>{" "}
+          </li>
         </React.Fragment>
       ) : (
-        ""
+        ''
       )}
     </>
-  );
+  )
 }

@@ -1,29 +1,33 @@
 'use client'
-import { menuItems } from '@/data/menu'
+
 import Link from 'next/link'
 import React from 'react'
 import { useRouter } from 'next/router'
+import { useAppData } from '@/context/AppDataContext';
 
 export default function Nav() {
+  const app = useAppData();
+  const menuItems = app?.menu?.items || [];
+
   const { pathname } = useRouter()
   const isMenuActive = (menu) => {
     let isActive = false
-    if (menu.href !== '#') {
-      if (pathname.split('/')[1] == menu.href?.split('/')[1]) {
+    if (menu.url !== '#') {
+      if (pathname.split('/')[1] == menu.url?.split('/')[1]) {
         isActive = true
       }
     }
-    if (menu.subItems) {
-      menu.subItems.forEach((el) => {
-        if (el.href != '#') {
-          if (pathname.split('/')[1] == el.href?.split('/')[1]) {
+    if (menu.children) {
+      menu.children.forEach((el) => {
+        if (el.url != '#') {
+          if (pathname.split('/')[1] == el.url?.split('/')[1]) {
             isActive = true
           }
         }
-        if (el.subItems) {
-          el.subItems.map((elm) => {
-            if (elm.href != '#') {
-              if (pathname.split('/')[1] == elm.href?.split('/')[1]) {
+        if (el.children) {
+          el.children.map((elm) => {
+            if (elm.url != '#') {
+              if (pathname.split('/')[1] == elm.url?.split('/')[1]) {
                 isActive = true
               }
             }
@@ -33,31 +37,35 @@ export default function Nav() {
     }
     return isActive
   }
+
   return (
     <>
       {menuItems.map((item, index) => (
-        <li key={index} className={item.isActive ? 'has-children current' : 'has-children'}>
-          <a href='#' className={isMenuActive(item) ? 'parent-active activeMenu' : ''}>
-            {item.title}
+        <li key={index} className={item.isActive ? 'has-children current' : item.children.length > 0 ? 'has-children' : ''}>
+          <a
+            href={item.url}
+            className={isMenuActive(item) ? 'parent-active activeMenu' : ''}
+          >
+            {item.label}
           </a>
-          {item.subItems && (
+          {item.children.length > 0 && item.children && (
             <ul className={item.hasMega ? 'mega-menu' : ''}>
-              {item.subItems.map((subItem, subIndex) => (
-                <li key={subIndex} className={subItem.subItems ? 'has-item-children' : ''}>
-                  {subItem.title && !subItem.href && (
-                    <span className={`title ${isMenuActive(subItem) ? 'activeMenu' : ''}`}>{subItem.title}</span>
+              {item.children.map((subItem, subIndex) => (
+                <li key={subIndex} className={subItem.children.length > 0 ? 'has-item-children' : ''}>
+                  {subItem.label && !subItem.url && (
+                    <span className={`title ${isMenuActive(subItem) ? 'activeMenu' : ''}`}>{subItem.label}</span>
                   )}
-                  {subItem.href ? (
-                    <Link href={subItem.href} className={`${isMenuActive(subItem) ? 'activeMenu' : ''}`}>
-                      {subItem.title}
+                  {subItem.url ? (
+                    <Link href={subItem.url} className={`${isMenuActive(subItem) ? 'activeMenu' : ''}`}>
+                      {subItem.label}
                     </Link>
                   ) : (
-                    subItem.subItems && (
+                    subItem.children.length > 0 && (
                       <ul>
-                        {subItem.subItems.map((subSubItem, subSubIndex) => (
+                        {subItem.children.map((subSubItem, subSubIndex) => (
                           <li key={subSubIndex}>
-                            <Link href={subSubItem.href} className={`${isMenuActive(subSubItem) ? 'activeMenu' : ''}`}>
-                              {subSubItem.title}
+                            <Link href={subSubItem.url} className={`${isMenuActive(subSubItem) ? 'activeMenu' : ''}`}>
+                              {subSubItem.label}
                             </Link>
                           </li>
                         ))}

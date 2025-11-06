@@ -43,7 +43,8 @@ trait SeoableTrait
     {
         return $this
             ->morphOne(Url::class, 'urlable')
-            ->where('locale', get_current_edit_locale());
+            ->where('locale', get_current_edit_locale())
+            ->withoutGlobalScopes();
     }
 
     public function seourls()
@@ -61,8 +62,11 @@ trait SeoableTrait
         if (isset($this->seoableAttributes['seometa'])) {
             $value = $this->seoableAttributes['seometa'];
 
-            if ($this->seometa) {
-                $this->seometa->update($value);
+            // Check if we already have a seometa record for this model
+            $existingSeometa = $this->seometa;
+
+            if ($existingSeometa) {
+                $existingSeometa->update($value);
             } else {
                 $this->seometa()->create($value);
             }
@@ -77,10 +81,15 @@ trait SeoableTrait
             $value['target_path'] = parse_url($this->getUrl(), PHP_URL_PATH);
             $value['request_path'] = $value['request_path'] ?? Str::slug($this->name);
 
-            if ($this->seourl) {
-                $this->seourl->update($value);
+            // Check if we already have a seourl record for this model
+            $existingSeourl = $this->seourls()
+                ->where('locale', get_current_edit_locale())
+                ->first();
+
+            if ($existingSeourl) {
+                $existingSeourl->update($value);
             } else {
-                $this->seourl()->create($value);
+                $this->seourls()->create($value);
             }
         }
     }
@@ -117,6 +126,9 @@ trait SeoableTrait
 
     public function setUrlAttribute($value)
     {
+        if (!isset($this->seoableAttributes['seourl'])) {
+            $this->seoableAttributes['seourl'] = [];
+        }
         $this->seoableAttributes['seourl']['request_path'] = $value;
     }
 

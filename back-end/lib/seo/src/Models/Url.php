@@ -37,6 +37,8 @@ class Url extends Model
     protected $table = 'seo__urls';
 
     protected $fillable = [
+        'urlable_type',
+        'urlable_id',
         'request_path',
         'target_path',
         'locale',

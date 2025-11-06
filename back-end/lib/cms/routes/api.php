@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\ApiKeyMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Newnet\Cms\Http\Controllers\Api\CommentController;
@@ -22,9 +23,7 @@ use Newnet\Cms\Http\Controllers\Api\SatelliteSyncController;
 |
 */
 
-$reqPerMinute = config('app.request_per_minute');
-
-Route::middleware(['api.key', "throttle:$reqPerMinute,1"])->group(function () {
+Route::middleware([ApiKeyMiddleware::class, 'throttle:elearning-auth'])->group(function () {
     Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
         return $request->user();
     });

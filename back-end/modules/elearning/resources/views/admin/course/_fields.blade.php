@@ -18,7 +18,9 @@
         <div class="row">
             <div class="col-12 col-md-9">
                 @input(['name' => 'name', 'label' => __('elearning::course.name')])
-                @textarea(['name' => 'description', 'label' => __('elearning::course.description')])
+                @input(['name' => 'price', 'label' => __('elearning::course.price'), 'mask' => 'money'])
+                @input(['name' => 'sale_price', 'label' => __('elearning::course.sale_price'), 'mask' => 'money'])
+                @textarea(['name' => 'summary', 'label' => __('elearning::course.description')])
                 @editor(['name' => 'content', 'label' => __('elearning::course.content')])
             </div>
             <div class="col-12 col-md-3">

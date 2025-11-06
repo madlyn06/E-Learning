@@ -32,7 +32,7 @@ class ProfileController extends Controller
 
     public function update(CustomerRequest $request)
     {
-        $this->customerRepository->updateById($request->except(['email', 'avatar']), auth()->user()->id);
+        $this->customerRepository->updateById($request->except(['email', 'avatar']), auth('sanctum')->user()->id);
         if ($request->hasFile('avatar')) {
             if (explode('/', $request->file('avatar')->getClientMimeType())[0] == 'image') {
                 $avatar = $this->mediaUploader->setFile($request->file('avatar'))->upload();

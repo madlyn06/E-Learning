@@ -9,9 +9,7 @@ use Modules\Ecommerce\Http\Controllers\Api\PaymentMethodController;
 use Modules\Ecommerce\Http\Controllers\Api\RatingController;
 use Modules\Ecommerce\Http\Middlewares\HasPermissionAccessOrderDetail;
 
-$reqPerMinute = config('app.request_per_minute');
-
-Route::middleware(['api.key', "throttle:$reqPerMinute,1"])->group(function () {
+Route::middleware(['api.key'])->group(function () {
   Route::prefix('v1/ecommerce')->group(function () {
     // Category
     Route::get('get-categories', [CategoryController::class, 'getAllActiveCategories'])->name('ecommerce.api.category.getAllActiveCategories');

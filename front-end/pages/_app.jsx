@@ -2,14 +2,27 @@ import Context from '@/context/Context'
 import '../public/scss/main.scss'
 import 'swiper/css/effect-fade'
 import { useEffect } from 'react'
-import { tabs } from '@/utlis/tabs'
+import { tabs } from '@/utils/tabs'
 import { useRouter } from 'next/router'
 import SearchModal from '@/components/modals/SearchModal'
 import BackToTop from '@/components/common/BackToTop'
 import MobileMenu from '@/components/modals/MobileMenu'
+import { AuthProvider } from '@/context/AuthContext'
+import { Bounce, ToastContainer } from 'react-toastify'
+import { appWithTranslation } from 'next-i18next'
+import { AppDataProvider } from '@/context/AppDataContext'
+import { SWRConfig } from 'swr'
+import { fetcher } from '@/utils/fetcher'
+import Processing, { useProcessing } from '@/components/ui/Processing'
+import { FeedbackContext } from '@/context/FeedBackContext'
+import DashBoardContext from '@/context/DashboardContext'
+import { useDashBoard } from '@/hooks/useDashBoard'
+import Loading from '@/components/ui/Loading'
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   const { pathname } = useRouter()
+  const { useFetchCategories } = useDashBoard()
+  const [{ data: categories }] = useFetchCategories()
   useEffect(() => {
     if (typeof window !== 'undefined') {
       // Import the script only on the client side
@@ -72,6 +85,7 @@ export default function App({ Component, pageProps }) {
     })
     wow.init()
   }, [pathname])
+
   useEffect(() => {
     const header = document.querySelector('header')
 
@@ -125,12 +139,48 @@ export default function App({ Component, pageProps }) {
       }
     })
   }, [pathname]) // Runs every time the route changes
+
+  const [processing, toggleProcessing] = useProcessing(false)
+
+  if (!categories) return <Loading />
   return (
-    <Context>
-      <Component {...pageProps} />
-      <MobileMenu />
-      <SearchModal />
-      <BackToTop />
-    </Context>
+    <AppDataProvider initial={pageProps.__appData}>
+      <FeedbackContext.Provider value={{ toggleProcessing }}>
+        <AuthProvider >
+          <DashBoardContext.Provider
+            value={{
+              categories
+            }}
+          >
+            <Context>
+              <SWRConfig
+                value={{ fetcher, revalidateOnFocus: false, revalidateIfStale: false, revalidateOnReconnect: false }}
+              >
+                <Component {...pageProps} />
+              </SWRConfig>
+              <ToastContainer
+                position='top-right'
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={true}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme='light'
+                transition={Bounce}
+              />
+              <MobileMenu />
+              <SearchModal />
+              <BackToTop />
+              <Processing visible={processing} />
+            </Context>
+          </DashBoardContext.Provider>
+        </AuthProvider>
+      </FeedbackContext.Provider>
+    </AppDataProvider>
   )
 }
+
+export default appWithTranslation(App)
